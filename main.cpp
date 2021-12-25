@@ -3,75 +3,44 @@
 
 using namespace std;
 
-class Student {
+class Chef {
     public:
-        string name;
-        string major;
-        double gpa;
-        Student(string aName, string aMajor, double aGpa) {
-            name = aName;
-            major = aMajor;
-            gpa = aGpa;
+        void makeChicken() {
+            cout << "The chef makes chicken" << endl;
         }
-
-        bool hasHonors() {
-
-            return gpa >= 3.5;
-
+        void makeSals() {
+            cout << "The chef makes salad" << endl;
+        }
+        void makeSecialDish() {
+            cout << "The chef makes bbq chicken" << endl;
         }
 
 };
 
-class Book {
-
-    public:
-        string title;
-        string author;
-        int pages;
-
-        Book() {
-        //    title = "No title";
-        //    author = "No author";
+class ItalianChef : public Chef {
+public:
+    void makePata() {
+        cout << "Italin chef makes pasta" << endl;
+    }
+    void makeSecialDish() {
+            cout << "The chef makes Chicken Parmesan" << endl;
         }
-        Book(string aTitle, string aAuthor, int aPages) {
-            title = aTitle;
-            author = aAuthor;
-            pages = aPages;
-            cout << "creating object for " << aTitle << endl;
-        }
-
-
-
 };
-
 int main()
 {
 
-    Student student1 ("Jim", "Business", 2.4);
-    Student student2 ("Pam", "Art", 3.6);
+    Chef chef;
 
-    cout << student1.hasHonors() << endl;
-    cout << student2.hasHonors() << endl;
-/*
-    Book book1("Harry Potter", "JK Rowling", 500);
-    Book book2("Lord of the Rings", "Tolkein", 600);
-    Book book3;
+    chef.makeChicken();
 
-    cout << book1.title << endl;
-    cout << book1.author << endl;
-    cout << book1.pages << endl;
-    cout << "--------------" << endl;
+    ItalianChef italinChef;
 
-    cout << book2.title << endl;
-    cout << book2.author << endl;
-    cout << book2.pages << endl;
+    italinChef.makeChicken();
 
-    cout << "--------------" << endl;
+    italinChef.makePata();
 
-    cout << book3.title << endl;
-    cout << book3.author << endl;
-    cout << "Number of pages: " << book3.pages << endl;
-*/
+    italinChef.makeSecialDish();
+
     return 0;
 
 }
