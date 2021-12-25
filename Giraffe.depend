@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1640370745 source:c:\users\sudar\c++_projects\giraffe\main.cpp
+	<iostream>
+	<cmath>
+
+1640178106 source:c:\users\sudar\c++_projects\giraffe\main_shape.cpp
+	<iostream>
+
