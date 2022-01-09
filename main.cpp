@@ -1,37 +1,31 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <thread>
 
+//using namespace std;
 
-using namespace std;
-
-bool has_c1(const string& s, char c) // does s contain the character c?
+void hello()
 {
-    return find(s.begin(),s.end(),c)!=s.end();
+    std::cout << "Hello \n";
 }
 
-vector<string::iterator> find_all(string& s, char c) {
-    vector<string::iterator> res;
-    for(auto p = s.begin(); p!= s.end(); p++) {
-        if(*p == c)
-            res.push_back(p);
-    }
-    return res;
+void f (int i, std::string const& s) {
+
+    std::cout << "i:" << i << " , string is::" << s << std::endl;
 }
 
 int main()
 {
-    cout << has_c1("ABCDE", 'D') << "\n";
-    cout << has_c1("ABCDE", 'G') << "\n";
+    std::thread t1{hello};
 
-    string m{"Mary had a little lamb"};
-    for(auto p : find_all(m, 'a')) {
-        if(*p!='a')
-            cerr << "a bug \n";
-        else
-            cout << "after find all " << *p << endl;
-            cout << "after find all " << &p << endl;
-    }
+    t1.join();
+
+    std::thread t2(f, 5, "hello string");
+
+    t2.join();
+
+    std::cout << "Number of threads allows " << std::thread::hardware_concurrency() << std::endl;
     return 0;
 }
 
